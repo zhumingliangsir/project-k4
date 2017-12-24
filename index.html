@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement, //这里写的逗号 下边相对也是var了
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					//横屏 竖屏    浏览器窗口或HTML对象改变大小
+					recalc = function() {
+						window.clientWidth = docEl.clientWidth;
+						if(!window.clientWidth) return;
+						docEl.style.fontSize = 20 * (window.clientWidth / 640) + 'px';
+						window.base = 20 * (window.clientWidth / 640);
+						//20是自己设定的 最好不要让1rem小于12px   640是psd图大小 一般640 当然美工给的是多少用多少
+						//						document.getElementById('video_mp4').width = window.base * 28.8;
+						//						document.getElementById('video_mp4').height = window.base * 16.1;
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<title></title>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+			}
+			
+			.homepage {
+				display: none;
+			}
+			
+			.loading {
+				width: 100%;
+				height: 100%;
+				background-image: url(img/loading_bg.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+			
+			.loadingClock {
+				width: 12.15rem;
+				height: 10.75rem;
+				background-image: url(img/loading_clock.png);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				position: absolute;
+				left: 50%;
+				margin-left: -6rem;
+				top: 50%;
+				margin-top: -7.7rem;
+			}
+			
+			.loadingPointer {
+				width: 0.69rem;
+				height: 5.35rem;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -7.0rem;
+				margin-left: -0.3rem;
+				background-image: url(img/loading_pointer.png);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				transform: rotate(220deg);
+				-webkit-transform-origin: 50% 95%;
+			}
+			
+			.loadingNum {
+				color: white;
+				font-size: 1.85rem;
+				position: absolute;
+				left: 45%;
+				top: 58%;
+			}
+			
+			.swiper-container {
+				width: 28.9rem;
+				height: 13.5rem;
+				position: absolute;
+				left: 1.40rem;
+				top: 2.75rem;
+				display: none;
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			
+			.swiper-button-next {
+				background-image: url(img/page1_btn_prev.png);
+				background-size: 100% 100%;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-transform: rotate(180deg);
+			}
+			
+			.swiper-button-prev {
+				background-image: url(img/page1_btn_prev.png);
+				background-size: 100% 100%;
+				-webkit-tap-highlight-color: transparent;
+			}
+			
+			.swiper-container img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<div class="loadingClock"></div>
+			<div class="loadingPointer"></div>
+			<p class="loadingNum">20%</p>
+		</div>
+		<div class="homeparents">
+			<div class="activityExplain">
+				<div class="explainMain">
+					<div class="explainTitle">活动说明</div>
+					<div class="scrollWrap">
+						<div class="scroller">
+							<p>
+								东风悦达起亚K4邀你一起看电影过新年！自<span class="fc">1月29号起至2月14号</span>，参与“东风悦达起亚K4邀你看电影”活动，就有机会获得<span class="fc">时光网免费电子兑换票2张</span>！！<br> 与东风悦达起亚K4一起观影，过大年！快来参加吧！
+								<br> 奖项设置：
+								<br> 获胜用户可获得由东风悦达起亚K4提供的的时光网免费电子兑换票2张。
+							</p>
+							<h4>特别声明：</h4>
+							<p>
+								参与者一旦参加本次活动，即视为同意并接受以下内容：<br> 1、参与者应保证其参加本次活动时提交的个人信息真实、准确、有效，如因提交的手机信息有误导致奖品无法发放，将视为自动放弃，时光网不另行安排补发奖品；
+								<br> 2、手机号码为确认中奖和发奖的唯一凭证，请正确填写并保证手机号码畅通，如因填写错误或手机不畅通造成的发奖不成功，将视为放弃中奖资格，并不予重新更正发放；
+								<br> 3、本活动奖品之寄送地址仅限中国大陆地区；
+								<br> 4、本活动奖品不得转换、转让或折换现金；
+								<br> 5、活动期间，严禁通过使用第三方软件、编写代码、黑客攻击、非正常操作流程、非正确手机号或资料信息等手段和方式以获取抽奖机会的行为，一经发现，将取消已获得的抽奖资格及已获奖奖项；
+								<br> 6、如遇不可抗力因素，Mtime时光网有权终止活动，有权以相同价值产品替代已公布奖项；
+								<br> 7、时光电子兑换券的适用城市、影院及观影类型，请咨询：4006118118或者详询电子兑换使用说明（“电子兑换使用说明“+链接：
+								<a href="http://group.mtime.com/help/discussion/3555651/">http://group.mtime.com/help/discussion/3555651/</a>）；<br> 8、本次活动最终解释权归Mtime时光网所有。
+								<br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="close"></div>
+			</div>
+			<div class="tryForm">
+				<div class="bodyForm">
+					<div class="finForm">
+						<div>
+							*姓名: <input type="text" value="" name="" />
+						</div>
+						<div>
+							*手机号: <input type="text" value="" name="" />
+						</div>
+						<div id="drive">
+							<span>是否预约驾驶</span> 是 <input type="radio" name="drive" id="driveis" /> 否 <input type="radio" name="drive" id="driveis" />
+						</div>
+						<div class="fuqi">
+							<span>*所在省份:</span><span class="sheng">
+								<select name=""><option value="">请选择</option><option value="2">北京</option><option value="24">上海</option><option value="25">天津</option><option value="31">重庆</option><option value="130000">河北省</option><option value="140000">山西省</option><option value="150000">内蒙古自治区</option><option value="210000">辽宁省</option><option value="220000">吉林省</option><option value="230000">黑龙江省</option><option value="320000" selected="selected">江苏省</option><option value="330000">浙江省</option><option value="340000">安徽省</option><option value="350000">福建省</option><option value="360000">江西省</option><option value="370000">山东省</option><option value="410000">河南省</option><option value="420000">湖北省</option><option value="430000">湖南省</option><option value="440000">广东省</option><option value="450000">广西壮族自治区</option><option value="460000">海南省</option><option value="510000">四川省</option><option value="520000">贵州省</option><option value="530000">云南省</option><option value="540000">西藏自治区</option><option value="610000">陕西省</option><option value="620000">甘肃省</option><option value="630000">青海省</option><option value="640000">宁夏回族自治区</option><option value="650000">新疆维吾尔自治区</option><option value="710000">台湾省</option><option value="810000">香港特别行政区</option><option value="820000">澳门特别行政区</option>
+								</select>
+							</span>
+							<span>省</span>
+							<span class="shi">
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+							</span>
+							<span>市</span>
+						</div>
+						<div>
+							<span style="line-height: 3rem;">*选择经销商:</span> <span class="fin"><select name="">
+								<option value="">请选择</option>
+							</select></span>
+						</div>
+						<div>
+							<span style="line-height: 3rem;">*选择车型:</span> <span class="fin"><select name="">
+								<option value="">请选择</option>
+							</select></span>
+						</div>
+						<div>
+							<span style="line-height: 3rem;">*预计购车时间:</span> <span class="fin"><select name="">
+								<option value="">请选择</option>
+							</select></span>
+						</div>
+						<input type="button" class="sub" style="width: 14.2rem;height: 3.3rem;border: none;"/>
+					</div>
+				</div>
+				<div class="closeTry"></div>
+			</div>
+			<div class="allWrongDiv"></div>
+			<div class="homepage">
+				<div class="top"></div>
+				<div class="main">
+					<ul>
+						<li>首页</li>
+						<li class="activity">活动说明</li>
+						<li class="goodVideo">精美视频</li>
+						<li>
+							<a href="http://www.baidu.com">访问官网</a>
+						</li>
+						<li class="list">中奖名单</li>
+					</ul>
+					<div class="try"></div>
+					<div class="car"></div>
+				</div>
+				<div class="footer">
+					<ul class="footerNav">
+						<li class="navVideo"></li>
+						<li class="navShow"></li>
+					</ul>
+					<div class="footerShow">
+						<div class="footerVideo">
+							<video src="video/video.mp4" poster="./img/page1_video_poster.png" onended="show()"></video>
+							<div class="videoPoster"></div>
+						</div>
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><img src="img/1.jpg" /></div>
+								<div class="swiper-slide"><img src="img/2.jpg" /></div>
+								<div class="swiper-slide"><img src="img/3.jpg" /></div>
+								<div class="swiper-slide"><img src="img/4.jpg" /></div>
+								<div class="swiper-slide"><img src="img/5.jpg" /></div>
+							</div>
+							<!-- Add Arrows -->
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/touchjs.min.js"></script>
+	<script src="js/scroll.js"></script>
+	<script src="js/footerVideo.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/finally.js"></script>
+	<script type="text/javascript">
+		var activityExplain = document.querySelector(".activityExplain");
+		var homepage = document.querySelector(".homepage");
+		var homeparents = document.querySelector(".homeparents");
+		var loading = document.querySelector(".loading");
+		var loadingPointer = document.querySelector(".loadingPointer");
+		var loadingNum = document.querySelector(".loadingNum");
+		var timerClock = null;
+		var clockNum = 220;
+
+		var allPic = [
+			'1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '371_1453779101.png', '912_1453779104.png',
+			'1093_1453854255.png', '1536_1453779105.png', '2062_1453779100.png', '2115_1453779103.png',
+			'2214_1453779105.png', '2407_1453779106.png', '2488_1453779103.png', '2740_1453779102.png',
+			'3046_1453779101.png', '3375_1453854403.png', '4169_1453779106.png', '4505_1453779105.png',
+			'4536_1453779106.png', '4575_1453779105.png', '4814_1453854252.png', '5844_1453779104.png',
+			'5865_1453779098.png', '6240_1453779101.png', '6253_1453779102.png', '7030_1453856838.png',
+			'7705_1453779100.png', '8268_1453779103.png', '8279_1453779085.png', '8696_1453854253.png',
+			'9228_1453779104.png', 'commen_close.png', 'layer_info_checked.png', 'layer_info_select.jpg',
+			'layer_info_submit.png', 'layer_prize.png', 'layer_prize_none.png', 'layer_select_bg.png',
+			'page1_btn_next.png', 'page1_btn_pic.png', 'page1_btn_pic_active.png', 'page1_btn_prev.png',
+			'page1_btn_share.png', 'page1_btn_video.png', 'page1_btn_video_active.png', 'page1_k4.png',
+			'page1_main_bg.jpg', 'page1_nav_active.png', 'page1_tab_bg.jpg', 'page1_top_bg.jpg',
+			'page1_video_poster.png', 'page2_bg.jpg', 'page2_btn_intro.png', 'page2_btn_start.png',
+			'page3_bg.jpg', 'page3_btn_start.png', 'page3_choosed_bg.png', 'page5_bg.jpg', 'share.jpg',
+			'loading_bg.jpg', 'loading_clock.png', 'loading_pointer.png'
+		];
+		for(var i = 1; i <= 235; i++) {
+			allPic.push('video/che_' + i + '.jpg');
+		}
+		for(var i = 0; i < allPic.length; i++) {
+			allPic[i] = 'img/' + allPic[i];
+		}
+
+		//  var loadArr = [];
+		var loadNum = 0; //用来记录加载好的图片数量
+
+		for(var i = 0; i < allPic.length; i++) {
+			var img = new Image();
+			img.src = allPic[i];
+			//		loadArr.push(img);
+			img.onload = function() {
+				loadNum++;
+				clockNum++;
+				if(clockNum == 360) {
+					clockNum = 0;
+				}
+				loadingPointer.style.transform = "rotate(" + clockNum + "deg)";
+				loadingNum.innerHTML = Math.ceil(loadNum / allPic.length * 100) + "%";
+				if(loadNum === allPic.length) {
+					loading.style.display = "none";
+					homepage.style.display = "block";
+					homeparents.style.display = "block";
+					homepage.style.transform = "translateY(0)";
+					homepage.addEventListener("touchstart", touchstart, false);
+					homepage.addEventListener("touchmove", touchmove, false);
+					homepage.addEventListener("touchend", touchend, false);
+				}
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			#div1 {
+				width: 300px;
+				height: 300px;
+				background-color:black;
+				overflow: hidden;
+			}
+			#div2 {
+				width: 100px;
+				height: 1500px;
+				background-color: red;
+			}
+			.zz {
+				background-image: url(img/wocao.jpg);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				height: 200px;
+				width: 200px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div class="zz"></div>
+		</div>
+		<div id="div2">
+			
+		</div>
+	</body>
+	 
+	<script type="text/javascript">
+		var div1 = document.querySelector("#div1");
+		var div2 = document.querySelector("#div2");
+		window.addEventListener("touchstart",touchstart,false);
+		function touchstart(event) {
+			var e = event || window.event;
+			var y = e.touches[0].pageY;
+			if (e.preventDefault) {
+						e.preventDefault();
+					} else {
+						e.returnValue = false;
+					}
+		}
+	</script>
+</html>
